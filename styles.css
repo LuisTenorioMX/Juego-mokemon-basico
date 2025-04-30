@@ -1,0 +1,16 @@
+h1 {
+    color: red;
+    margin: 10px;
+    padding: 10px;
+}
+
+body {
+    background-color: black;
+}
+
+section {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
