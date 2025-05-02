@@ -14,13 +14,11 @@ function iniciarJs() {
     let vidaJugador = 3
     let vidaEnemigo = 3
     //Deshabilitar elementos
-    let estadoSalud = document.getElementById("estado-salud")
-    estadoSalud.style.display = "none"
-    let eligeAtaque = document.getElementById("elige-ataque")
-    eligeAtaque.style.display = "none"
-    let historialAtaques = document.getElementById("historial-ataques")
-    historialAtaques.style.display = "none"
-    let buttonReiniciar = document.getElementById("reiniciar")
+    let eligeMascota = document.getElementById("elige-mascota")
+    let buttonElegirMascota = document.getElementById("button-elige-mascota")
+    let saludAtaqueHistorial = document.getElementById("salud-ataque-historial")
+    saludAtaqueHistorial.style.display = "none"
+    let buttonReiniciar = document.getElementById("button-reiniciar")
     buttonReiniciar.style.display = "none"
     // ==================
     //Funciones
@@ -52,11 +50,10 @@ function iniciarJs() {
                 document.getElementById("vida-enemigo").innerHTML = vidaEnemigo
             }
             //Quitar elemento de elige mascota
-            let eligeMascota = document.getElementById("elige-mascota")
             eligeMascota.style.display = "none"
+            buttonElegirMascota.style.display = "none"
             //Mostrar elementos
-            estadoSalud.style.display = "block"
-            eligeAtaque.style.display = "block"
+            saludAtaqueHistorial.style.display = "flex"
             buttonReiniciar.style.display = "block"
         } else {
             alert("Elige a tu mascota")
@@ -65,8 +62,6 @@ function iniciarJs() {
     //Function ataques jugador y enemigo
     function ataqueJugadorEnemigo(ataque) {
         if (vidaJugador > 0 && vidaEnemigo > 0) {
-            //Mostrar historial de ataques
-            historialAtaques.style.display = "block"
             //ataque jugador
             if (ataque == "FUEGO") {
                 ataqueJugador = "FUEGO"
@@ -160,7 +155,7 @@ function iniciarJs() {
     //Eventos
     // ==================
     // Evento para ejecutar la function EscogeMascota
-    document.getElementById("button-Elige-mascota").addEventListener("click", escogeMascota)
+    document.getElementById("button-elige-mascota").addEventListener("click", escogeMascota)
     // Evento para ejecutar la function ataqueJugadorEnemigo
     document.getElementById("button-ataque-fuego").addEventListener("click", () => ataqueJugadorEnemigo("FUEGO"))
     document.getElementById("button-ataque-agua").addEventListener("click", () => ataqueJugadorEnemigo("AGUA"))
