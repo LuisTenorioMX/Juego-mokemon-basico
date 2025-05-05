@@ -1,20 +1,83 @@
+/* ================================================ */
+/* Más generales*/
+/* ================================================ */
 body {
     background-color: black;
+    font-family: roboto, sans-serif;
 }
 
 h1 {
     color: #F00;
     text-align: center;
+    font-size: 100px;
+    margin: 30px 0;
 }
 
 /* ================================================ */
 /* Secciones*/
 /* ================================================ */
-.secciones-paginas {
-    background-color: white;
+/* Seccion general */
+.flex-secciones-paginas {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
+}
+
+.estilos-secciones-paginas {
+    background-color: #FFF;
     border-radius: 10px;
+}
+
+/* Sección de elección de mascota */
+#estilos-elige-mascota {
+    padding: 0px 19.5px;
+}
+
+#h2-elige-mascota {
+    font-size: 30px;
+    text-align: center;
+    margin: 25px 0 0 0;
+}
+
+#input-eleccion-mascota {
+    display: flex;
+}
+
+label {
+    width: 250px;
+    height: 250px;
+    margin: 25px 12.5px 32px;
+    background-color: #aca2ff;
+}
+
+/* input {
+    display: none;
+    } */
+/* Sección de estado de salud, ataque e historial de ataques */
+#estilos-salud-ataque-historial {
+    padding: 0px 32px;
+}
+
+.h2-salud-ataque {
+    font-size: 30px;
+    margin: 25px 0
+}
+
+#historial-ataques {
+    height: 243px;
+    margin: 32px 0 32px;
+    padding: 10px;
+    border: 3px solid #000;
+    border-radius: 5px;
+    background-color: #9e9e9e;
+}
+
+#h2-historial-ataques {
+    font-size: 30px;
+    margin: 0 0 13px;
+}
+
+#creacion-historial-ataques>p {
+    font-size: 13px;
+    margin: 8px 0;
 }

@@ -97,17 +97,17 @@ function iniciarJs() {
     function creacionHistorialAtaquesJugador() {
         let historialAtaqueJugador = document.createElement("p")
         historialAtaqueJugador.innerHTML = "El jugador atacó con " + ataqueJugador
-        document.getElementById("historial-ataques").appendChild(historialAtaqueJugador)
+        document.getElementById("creacion-historial-ataques").appendChild(historialAtaqueJugador)
     }
     function creacionHistorialAtaquesEnemigo() {
         let historialAtaqueEnemigo = document.createElement("p")
         historialAtaqueEnemigo.innerHTML = "El enemigo atacó con " + ataqueEnemigo
-        document.getElementById("historial-ataques").appendChild(historialAtaqueEnemigo)
+        document.getElementById("creacion-historial-ataques").appendChild(historialAtaqueEnemigo)
     }
     function creacionHistorialResultadoBatalla() {
         let historialResultadoBatalla = document.createElement("p")
         historialResultadoBatalla.innerHTML = resultadoBatalla
-        document.getElementById("historial-ataques").appendChild(historialResultadoBatalla)
+        document.getElementById("creacion-historial-ataques").appendChild(historialResultadoBatalla)
     }
     //Function algoritmo de batalla
     function algoritmoBatalla() {
