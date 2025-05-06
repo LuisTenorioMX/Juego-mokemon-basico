@@ -107,6 +107,7 @@ function iniciarJs() {
     function creacionHistorialResultadoBatalla() {
         let historialResultadoBatalla = document.createElement("p")
         historialResultadoBatalla.innerHTML = resultadoBatalla
+        historialResultadoBatalla.style.fontWeight = "bold"
         document.getElementById("creacion-historial-ataques").appendChild(historialResultadoBatalla)
     }
     //Function algoritmo de batalla

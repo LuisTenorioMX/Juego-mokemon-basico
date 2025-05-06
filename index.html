@@ -16,25 +16,28 @@
         <div class="estilos-secciones-paginas" id="estilos-elige-mascota">
             <h2 id="h2-elige-mascota">Elige tu mascota:</h2>
             <div id="input-eleccion-mascota">
-                <label for="hipodoge">
+                <label for="hipodoge" tabindex="0" class="seleccionables-clickeables">
                     <input id="hipodoge" type="radio" name="mascota">
                     <span>Hipodoge</span>
+                    <img src="./Assets/images/mokepons_mokepon_hipodoge_attack.webp" alt="hipodoge">
                 </label>
-                <br>
-                <label for="capipeo">
+                <label for="capipeo" tabindex="0" class="seleccionables-clickeables">
                     <input id="capipeo" type="radio" name="mascota">
                     <span>Capipeo</span>
+                    <img src="./Assets/images/mokepons_mokepon_capipepo_attack.webp" alt="capipeo">
                 </label>
-                <br>
-                <label for="ratigueya">
+                <label for="ratigueya" tabindex="0" class="seleccionables-clickeables">
                     <input id="ratigueya" type="radio" name="mascota">
                     <span>Ratigueya</span>
+                    <img src="./Assets/images/mokepons_mokepon_ratigueya_attack.webp" alt="ratigueya">
                 </label>
             </div>
         </div>
     </section>
     <div class="button-elegir-reiniciar">
-        <button id="button-elige-mascota">Elegir</button>
+        <button class="seleccionables-clickeables estilos-button-elegir-reiniciar" id="button-elige-mascota">
+            Elegir
+        </button>
     </div>
     <!-- seccion de estado de salud, ataque e historial de ataques -->
     <div class="flex-secciones-paginas" id="salud-ataque-historial">
@@ -49,9 +52,11 @@
             <!-- seccion de elegir ataque -->
             <section>
                 <h2 class="h2-salud-ataque">Elige tu ataque:</h2>
-                <button id="button-ataque-fuego">FUEGO</button>
-                <button id="button-ataque-agua">AGUA</button>
-                <button id="button-ataque-tierra">TIERRA</button>
+                <div class="flex-ataques">
+                    <button class="seleccionables-clickeables button-ataque" id="button-ataque-fuego">FUEGO</button>
+                    <button class="seleccionables-clickeables button-ataque" id="button-ataque-agua">AGUA</button>
+                    <button class="seleccionables-clickeables button-ataque" id="button-ataque-tierra">TIERRA</button>
+                </div>
             </section>
             <!-- seccion de historial de ataques -->
             <section id="historial-ataques">
@@ -61,7 +66,9 @@
         </div>
     </div>
     <div class="button-elegir-reiniciar">
-        <button id="button-reiniciar">Reiniciar</button>
+        <button class="seleccionables-clickeables estilos-button-elegir-reiniciar" id="button-reiniciar">
+            Reiniciar
+        </button>
     </div>
 </body>
 
