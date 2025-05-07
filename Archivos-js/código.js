@@ -10,6 +10,7 @@ function iniciarJs() {
     let ataqueJugador = ""
     let ataqueEnemigo = ""
     let resultadoBatalla = ""
+    let resultadoFinal = ""
     //Vidas
     let vidaJugador = 3
     let vidaEnemigo = 3
@@ -27,27 +28,23 @@ function iniciarJs() {
     function escogeMascota() {
         if (pokemon1.checked || pokemon2.checked || pokemon3.checked) {
             // Del jugador
+            document.getElementById("vida-jugador").innerHTML = vidaJugador
+            document.getElementById("vida-enemigo").innerHTML = vidaEnemigo
             if (pokemon1.checked) {
                 document.getElementById("mascota-jugador").innerHTML = "hipodoge"
-                document.getElementById("vida-jugador").innerHTML = vidaJugador
             } else if (pokemon2.checked) {
                 document.getElementById("mascota-jugador").innerHTML = "capipeo"
-                document.getElementById("vida-jugador").innerHTML = vidaJugador
             } else {
                 document.getElementById("mascota-jugador").innerHTML = "ratigueya"
-                document.getElementById("vida-jugador").innerHTML = vidaJugador
             }
             //Del enemigo
             let pc = Math.ceil(Math.random() * 3)
             if (pc == 1) {
                 document.getElementById("mascota-enemigo").innerHTML = "hipodoge"
-                document.getElementById("vida-enemigo").innerHTML = vidaEnemigo
             } else if (pc == 2) {
                 document.getElementById("mascota-enemigo").innerHTML = "capipeo"
-                document.getElementById("vida-enemigo").innerHTML = vidaEnemigo
             } else {
                 document.getElementById("mascota-enemigo").innerHTML = "ratigueya"
-                document.getElementById("vida-enemigo").innerHTML = vidaEnemigo
             }
             //Quitar elemento de elige mascota
             eligeMascota.style.display = "none"
@@ -65,25 +62,19 @@ function iniciarJs() {
             //ataque jugador
             if (ataque == "FUEGO") {
                 ataqueJugador = "FUEGO"
-                creacionHistorialAtaquesJugador()
             } else if (ataque == "AGUA") {
                 ataqueJugador = "AGUA"
-                creacionHistorialAtaquesJugador()
             } else {
                 ataqueJugador = "TIERRA"
-                creacionHistorialAtaquesJugador()
             }
             //ataque enemigo
             let pc = Math.ceil(Math.random() * 3)
             if (pc == 1) {
                 ataqueEnemigo = "FUEGO"
-                creacionHistorialAtaquesEnemigo()
             } else if (pc == 2) {
                 ataqueEnemigo = "AGUA"
-                creacionHistorialAtaquesEnemigo()
             } else {
                 ataqueEnemigo = "TIERRA"
-                creacionHistorialAtaquesEnemigo()
             }
             algoritmoBatalla()
             //Respuestas si intenta atacar muerto o si ya mataron al enemigo
@@ -93,64 +84,88 @@ function iniciarJs() {
             alert("No puedes atacar, el enemigo está muerto ¡Deja al cadaver en paz!")
         }
     }
+    //Function algoritmo de batalla
+    function algoritmoBatalla() {
+        if (ataqueJugador == ataqueEnemigo) {
+            resultadoBatalla = "Empate"
+            parpadeoEmpate()
+        } else if ((ataqueJugador == "FUEGO" && ataqueEnemigo == "AGUA") || (ataqueJugador == "AGUA" && ataqueEnemigo == "TIERRA") || (ataqueJugador == "TIERRA" && ataqueEnemigo == "FUEGO")) {
+            vidaEnemigo--
+            document.getElementById("vida-enemigo").innerHTML = vidaEnemigo
+            resultadoBatalla = "Lo heriste -1 de vida"
+            parpadeoVidasEnemigo()
+        } else {
+            vidaJugador--
+            document.getElementById("vida-jugador").innerHTML = vidaJugador
+            resultadoBatalla = "Te hirieron -1 de vida"
+            parpadeoVidasJugador()
+        }
+        creacionHistorialAtaques()
+        if (vidaEnemigo == 0) {
+            resultadoFinal = "Ganaste"
+            let colorFinal = "blue"
+            creacionResultadoFinal(colorFinal)
+        }
+        if (vidaJugador == 0) {
+            resultadoFinal = "Perdiste"
+            let colorFinal = "red"
+            creacionResultadoFinal(colorFinal)
+        }
+    }
+    //Function para hacer parpadear y cambiar el color de las vidas
+    function parpadeoVidasJugador() {
+        if (vidaJugador > 0) {
+            let parpadeoVidas = document.getElementById("p-salud-jugador")
+            parpadeoVidas.style.color = "red"
+            setTimeout(() => {
+                parpadeoVidas.style.color = "black"
+            }, 250)
+        } else {
+            document.getElementById("p-salud-jugador").style.color = "red"
+        }
+    }
+    function parpadeoVidasEnemigo() {
+        if (vidaEnemigo > 0) {
+            let parpadeoVidas = document.getElementById("p-salud-enemigo")
+            parpadeoVidas.style.color = "red"
+            setTimeout(() => {
+                parpadeoVidas.style.color = "black"
+            }, 250)
+        } else {
+            document.getElementById("p-salud-enemigo").style.color = "red"
+        }
+    }
+    function parpadeoEmpate() {
+        let parpadeoEmpateJugador = document.getElementById("p-salud-jugador")
+        let parpadeoEmpateEnemigo = document.getElementById("p-salud-enemigo")
+        parpadeoEmpateJugador.style.color = "blue"
+        parpadeoEmpateEnemigo.style.color = "blue"
+        setTimeout(() => {
+            parpadeoEmpateJugador.style.color = "black"
+            parpadeoEmpateEnemigo.style.color = "black"
+        }, 250)
+    }
     //Functions para crear el historial de ataques
-    function creacionHistorialAtaquesJugador() {
+    function creacionHistorialAtaques() {
+        //Historial de ataques jugador y enemigo
         let historialAtaqueJugador = document.createElement("p")
         historialAtaqueJugador.innerHTML = "El jugador atacó con " + ataqueJugador
         document.getElementById("creacion-historial-ataques").appendChild(historialAtaqueJugador)
-    }
-    function creacionHistorialAtaquesEnemigo() {
         let historialAtaqueEnemigo = document.createElement("p")
         historialAtaqueEnemigo.innerHTML = "El enemigo atacó con " + ataqueEnemigo
         document.getElementById("creacion-historial-ataques").appendChild(historialAtaqueEnemigo)
-    }
-    function creacionHistorialResultadoBatalla() {
+        //resultado de batalla
         let historialResultadoBatalla = document.createElement("p")
         historialResultadoBatalla.innerHTML = resultadoBatalla
         historialResultadoBatalla.style.fontWeight = "bold"
         document.getElementById("creacion-historial-ataques").appendChild(historialResultadoBatalla)
     }
-    //Function algoritmo de batalla
-    function algoritmoBatalla() {
-        //Transformación de los ataques del jugador a números
-        if (ataqueJugador == "FUEGO") {
-            ataqueJugador = 1
-        } else if (ataqueJugador == "TIERRA") {
-            ataqueJugador = 2
-        } else {
-            ataqueJugador = 3
-        }
-        //Transformación de los ataques del enemigo a números
-        if (ataqueEnemigo == "FUEGO") {
-            ataqueEnemigo = 1
-        } else if (ataqueEnemigo == "TIERRA") {
-            ataqueEnemigo = 2
-        } else {
-            ataqueEnemigo = 3
-        }
-        //Algoritmo de batalla
-        if (ataqueJugador == ataqueEnemigo) {
-            resultadoBatalla = "Empate"
-            creacionHistorialResultadoBatalla()
-        } else if (ataqueJugador - ataqueEnemigo == 1 || ataqueJugador - ataqueEnemigo == -2) {
-            vidaEnemigo--
-            document.getElementById("vida-enemigo").innerHTML = vidaEnemigo
-            resultadoBatalla = "Dañaste al enemigo -1 de vida"
-            creacionHistorialResultadoBatalla()
-            if (vidaEnemigo == 0) {
-                resultadoBatalla = "Ganaste"
-                creacionHistorialResultadoBatalla()
-            }
-        } else {
-            vidaJugador--
-            document.getElementById("vida-jugador").innerHTML = vidaJugador
-            resultadoBatalla = "El enemigo te dañó -1 de vida"
-            creacionHistorialResultadoBatalla()
-            if (vidaJugador == 0) {
-                resultadoBatalla = "Perdiste"
-                creacionHistorialResultadoBatalla()
-            }
-        }
+    function creacionResultadoFinal(colorFinal) {
+        let historialResultadoFinal = document.createElement("p")
+        historialResultadoFinal.innerHTML = resultadoFinal
+        historialResultadoFinal.style.fontWeight = "bold"
+        historialResultadoFinal.style.color = colorFinal
+        document.getElementById("creacion-historial-ataques").appendChild(historialResultadoFinal)
     }
     // ==================
     //Eventos
