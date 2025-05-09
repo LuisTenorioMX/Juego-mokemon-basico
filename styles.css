@@ -21,7 +21,7 @@ h1 {
 
 .estilos-button-elegir-reiniciar {
     width: 150px;
-    margin: 12px 0;
+    margin: 12px 0 0;
     padding: 8px 0;
     border-radius: 10px;
     font-family: "Roboto", sans-serif;
@@ -37,18 +37,18 @@ h1 {
 /* Secciones*/
 /* ================================================ */
 /* Seccion general */
-.flex-secciones-paginas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .estilos-secciones-paginas {
     background-color: #FFF;
     border-radius: 10px;
 }
 
 /* Sección de elección de mascota */
+#seccion-elige-mascota {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #estilos-elige-mascota {
     padding: 0px 32px;
 }
@@ -102,18 +102,28 @@ label>img {
 }
 
 /* Sección de estado de salud, ataque e historial de ataques */
-#estilos-salud-ataque-historial {
-    padding: 0px 32px;
+#seccion-salud-ataque-historial {}
+
+.mokemon-salud img {
+    width: 100px;
+    height: 100px;
 }
 
-.h2-salud-ataque {
+.mokemon-salud p {
+    color: #FFF;
+}
+
+
+#h2-ataque {
     margin: 25px 0 12px;
     font-size: 30px;
+    text-align: center;
 }
 
 .flex-ataques {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 8px;
 }
 
@@ -162,6 +172,7 @@ label>img {
 #h2-historial-ataques {
     font-size: 30px;
     margin: 0 0 5px;
+    text-align: center;
 }
 
 #creacion-historial-ataques {
@@ -173,4 +184,8 @@ label>img {
 #creacion-historial-ataques>p {
     font-size: 13px;
     margin: 8px 0;
+}
+
+#button-reiniciar {
+    margin: 12px auto 0;
 }

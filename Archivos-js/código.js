@@ -15,9 +15,9 @@ function iniciarJs() {
     let vidaJugador = 3
     let vidaEnemigo = 3
     //Deshabilitar elementos
-    let eligeMascota = document.getElementById("elige-mascota")
+    let eligeMascota = document.getElementById("seccion-elige-mascota")
     let buttonElegirMascota = document.getElementById("button-elige-mascota")
-    let saludAtaqueHistorial = document.getElementById("salud-ataque-historial")
+    let saludAtaqueHistorial = document.getElementById("seccion-salud-ataque-historial")
     saludAtaqueHistorial.style.display = "none"
     let buttonReiniciar = document.getElementById("button-reiniciar")
     buttonReiniciar.style.display = "none"
@@ -28,24 +28,49 @@ function iniciarJs() {
     function escogeMascota() {
         if (pokemon1.checked || pokemon2.checked || pokemon3.checked) {
             // Del jugador
-            document.getElementById("vida-jugador").innerHTML = vidaJugador
-            document.getElementById("vida-enemigo").innerHTML = vidaEnemigo
             if (pokemon1.checked) {
                 document.getElementById("mascota-jugador").innerHTML = "hipodoge"
+                let imgMokemon = document.createElement("img")
+                imgMokemon.src = "../Assets/images/mokepons_mokepon_hipodoge_attack.webp"
+                imgMokemon.alt = "hipodoge"
+                document.getElementById("mokemon-salud-jugador").appendChild(imgMokemon)
             } else if (pokemon2.checked) {
                 document.getElementById("mascota-jugador").innerHTML = "capipeo"
+                let imgMokemon = document.createElement("img")
+                imgMokemon.src = "../Assets/images/mokepons_mokepon_capipepo_attack.webp"
+                imgMokemon.alt = "capipeo"
+                document.getElementById("mokemon-salud-jugador").appendChild(imgMokemon)
             } else {
                 document.getElementById("mascota-jugador").innerHTML = "ratigueya"
+                let imgMokemon = document.createElement("img")
+                imgMokemon.src = "../Assets/images/mokepons_mokepon_ratigueya_attack.webp"
+                imgMokemon.alt = "ratigueya"
+                document.getElementById("mokemon-salud-jugador").appendChild(imgMokemon)
             }
             //Del enemigo
             let pc = Math.ceil(Math.random() * 3)
             if (pc == 1) {
-                document.getElementById("mascota-enemigo").innerHTML = "hipodoge"
+                document.getElementById("mascota-enemigo").innerHTML = "El hipodoge enemigo: "
+                let imgMokemon = document.createElement("img")
+                imgMokemon.src = "../Assets/images/mokepons_mokepon_hipodoge_attack.webp"
+                imgMokemon.alt = "hipodoge"
+                document.getElementById("mokemon-salud-enemigo").appendChild(imgMokemon)
             } else if (pc == 2) {
-                document.getElementById("mascota-enemigo").innerHTML = "capipeo"
+                document.getElementById("mascota-enemigo").innerHTML = "El capipeo enemigo: "
+                let imgMokemon = document.createElement("img")
+                imgMokemon.src = "../Assets/images/mokepons_mokepon_capipepo_attack.webp"
+                imgMokemon.alt = "capipeo"
+                document.getElementById("mokemon-salud-enemigo").appendChild(imgMokemon)
             } else {
-                document.getElementById("mascota-enemigo").innerHTML = "ratigueya"
+                document.getElementById("mascota-enemigo").innerHTML = "La ratigueya enemiga: "
+                let imgMokemon = document.createElement("img")
+                imgMokemon.src = "../Assets/images/mokepons_mokepon_ratigueya_attack.webp"
+                imgMokemon.alt = "ratigueya"
+                document.getElementById("mokemon-salud-enemigo").appendChild(imgMokemon)
             }
+            //Mostrar vidas
+            document.getElementById("vida-jugador").innerHTML = vidaJugador
+            document.getElementById("vida-enemigo").innerHTML = vidaEnemigo
             //Quitar elemento de elige mascota
             eligeMascota.style.display = "none"
             buttonElegirMascota.style.display = "none"
@@ -118,7 +143,7 @@ function iniciarJs() {
             let parpadeoVidas = document.getElementById("p-salud-jugador")
             parpadeoVidas.style.color = "red"
             setTimeout(() => {
-                parpadeoVidas.style.color = "black"
+                parpadeoVidas.style.color = "white"
             }, 250)
         } else {
             document.getElementById("p-salud-jugador").style.color = "red"
@@ -129,7 +154,7 @@ function iniciarJs() {
             let parpadeoVidas = document.getElementById("p-salud-enemigo")
             parpadeoVidas.style.color = "red"
             setTimeout(() => {
-                parpadeoVidas.style.color = "black"
+                parpadeoVidas.style.color = "white"
             }, 250)
         } else {
             document.getElementById("p-salud-enemigo").style.color = "red"
@@ -141,8 +166,8 @@ function iniciarJs() {
         parpadeoEmpateJugador.style.color = "blue"
         parpadeoEmpateEnemigo.style.color = "blue"
         setTimeout(() => {
-            parpadeoEmpateJugador.style.color = "black"
-            parpadeoEmpateEnemigo.style.color = "black"
+            parpadeoEmpateJugador.style.color = "white"
+            parpadeoEmpateEnemigo.style.color = "white"
         }, 250)
     }
     //Functions para crear el historial de ataques
