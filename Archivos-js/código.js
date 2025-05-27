@@ -75,7 +75,7 @@ function iniciarJs() {
             eligeMascota.style.display = "none"
             buttonElegirMascota.style.display = "none"
             //Mostrar elementos
-            saludAtaqueHistorial.style.display = "flex"
+            saludAtaqueHistorial.style.display = "grid"
             buttonReiniciar.style.display = "block"
         } else {
             alert("Elige a tu mascota")
@@ -140,34 +140,36 @@ function iniciarJs() {
     //Function para hacer parpadear y cambiar el color de las vidas
     function parpadeoVidasJugador() {
         if (vidaJugador > 0) {
-            let parpadeoVidas = document.getElementById("p-salud-jugador")
-            parpadeoVidas.style.color = "red"
+            let parpadeoVidas = document.getElementById("mokemon-salud-jugador")
+            parpadeoVidas.style.backgroundColor = "red"
             setTimeout(() => {
-                parpadeoVidas.style.color = "white"
+                parpadeoVidas.style.backgroundColor = "#b8b8b8"
             }, 250)
         } else {
-            document.getElementById("p-salud-jugador").style.color = "red"
+            document.getElementById("mokemon-salud-jugador").style.backgroundColor = "red"
+            document.getElementById("mokemon-salud-enemigo").style.backgroundColor = "blue"
         }
     }
     function parpadeoVidasEnemigo() {
         if (vidaEnemigo > 0) {
-            let parpadeoVidas = document.getElementById("p-salud-enemigo")
-            parpadeoVidas.style.color = "red"
+            let parpadeoVidas = document.getElementById("mokemon-salud-enemigo")
+            parpadeoVidas.style.backgroundColor = "red"
             setTimeout(() => {
-                parpadeoVidas.style.color = "white"
+                parpadeoVidas.style.backgroundColor = "#b8b8b8"
             }, 250)
         } else {
-            document.getElementById("p-salud-enemigo").style.color = "red"
+            document.getElementById("mokemon-salud-enemigo").style.backgroundColor = "red"
+            document.getElementById("mokemon-salud-jugador").style.backgroundColor = "blue"
         }
     }
     function parpadeoEmpate() {
-        let parpadeoEmpateJugador = document.getElementById("p-salud-jugador")
-        let parpadeoEmpateEnemigo = document.getElementById("p-salud-enemigo")
-        parpadeoEmpateJugador.style.color = "blue"
-        parpadeoEmpateEnemigo.style.color = "blue"
+        let parpadeoEmpateJugador = document.getElementById("mokemon-salud-jugador")
+        let parpadeoEmpateEnemigo = document.getElementById("mokemon-salud-enemigo")
+        parpadeoEmpateJugador.style.backgroundColor = "blue"
+        parpadeoEmpateEnemigo.style.backgroundColor = "blue"
         setTimeout(() => {
-            parpadeoEmpateJugador.style.color = "white"
-            parpadeoEmpateEnemigo.style.color = "white"
+            parpadeoEmpateJugador.style.backgroundColor = "#b8b8b8"
+            parpadeoEmpateEnemigo.style.backgroundColor = "#b8b8b8"
         }, 250)
     }
     //Functions para crear el historial de ataques

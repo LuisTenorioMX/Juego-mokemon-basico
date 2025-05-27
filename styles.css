@@ -102,17 +102,48 @@ label>img {
 }
 
 /* Sección de estado de salud, ataque e historial de ataques */
-#seccion-salud-ataque-historial {}
+#seccion-salud-ataque-historial {
+    grid-template-areas:
+        "salud-jugador ataque-historial salud-enemigo"
+        "button-reiniciar button-reiniciar button-reiniciar";
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+}
 
-.mokemon-salud img {
-    width: 100px;
-    height: 100px;
+#mokemon-salud-jugador {
+    grid-area: salud-jugador;
+}
+
+#mokemon-salud-enemigo {
+    grid-area: salud-enemigo;
+}
+
+
+.mokemon-salud {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 212px;
+    border: #797979 solid 3px;
+    border-radius: 20px;
+    margin: 0 12px;
+    background-color: #b8b8b8;
 }
 
 .mokemon-salud p {
     color: #FFF;
 }
 
+.mokemon-salud img {
+    width: 150px;
+    height: 150px;
+}
+
+#seccion-ataque-historial {
+    grid-area: ataque-historial;
+    padding: 0 32px;
+}
 
 #h2-ataque {
     margin: 25px 0 12px;
@@ -162,7 +193,7 @@ label>img {
 
 #historial-ataques {
     height: 243px;
-    margin: 32px 0 32px;
+    margin: 32px 0;
     padding: 10px;
     border: 3px solid #000;
     border-radius: 5px;
@@ -187,5 +218,94 @@ label>img {
 }
 
 #button-reiniciar {
+    grid-area: button-reiniciar;
     margin: 12px auto 0;
+}
+
+/* Media queries */
+@media (max-width: 430px) {
+
+    /* ================================================ */
+    /* secciones */
+    /* ================================================ */
+    /* seccion-elige-mascota */
+    h1 {
+        font-size: 28px;
+        margin: 12px 0;
+    }
+
+    #h2-elige-mascota {
+        margin: 0 0 14px;
+        font-size: 24px;
+    }
+
+    #estilos-elige-mascota {
+        box-sizing: border-box;
+        width: calc(100% - 24px);
+        padding: 8px 12px 12px;
+    }
+
+    #input-eleccion-mascota {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    label {
+        margin: 0;
+        width: 100%;
+        height: 200px;
+    }
+
+    label>img {
+        width: 160px;
+        height: 160px;
+    }
+
+    /* Seccion salud, ataque e historial */
+    #seccion-salud-ataque-historial {
+        grid-template-areas:
+            "salud-jugador salud-enemigo"
+            "ataque-historial ataque-historial"
+            "button-reiniciar button-reiniciar";
+        grid-template-columns: calc(50% - 12px) calc(50% - 12px);
+    }
+
+    .mokemon-salud {
+        box-sizing: border-box;
+        width: 100%;
+        height: 170px;
+        margin: 0;
+    }
+
+    .mokemon-salud img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .mokemon-salud p {
+        margin: 8px 0px;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    #seccion-ataque-historial {
+        padding: 8px 12px 12px;
+    }
+
+    #seccion-ataque-historial h2 {
+        font-size: 24px;
+    }
+
+    #h2-ataque {
+        margin: 0 0 8px;
+    }
+
+    #historial-ataques {
+        margin: 12px 0 0px;
+        padding: 8px;
+    }
+
+    #creacion-historial-ataques {
+        width: 100%;
+    }
 }

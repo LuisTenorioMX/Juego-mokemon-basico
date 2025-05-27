@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
-    <script src="./Archivos-js/código.js"></script>
 </head>
 
 <body>
@@ -38,18 +37,16 @@
         </button>
     </section>
     <!-- seccion de estado de salud, ataque e historial de ataques -->
-    <div id="seccion-salud-ataque-historial">
+    <section id="seccion-salud-ataque-historial">
         <!-- seccion de estado de salud -->
-        <section>
-            <div class="mokemon-salud" id="mokemon-salud-jugador">
-                <p id="p-salud-jugador">Tu <span id="mascota-jugador"></span>: <span id="vida-jugador"></span> vidas</p>
-            </div>
-            <div class="mokemon-salud" id="mokemon-salud-enemigo">
-                <p id="p-salud-enemigo"><span id="mascota-enemigo"></span><span id="vida-enemigo"></span> vidas</p>
-            </div>
-        </section>
+        <div class="mokemon-salud" id="mokemon-salud-jugador">
+            <p id="p-salud-jugador">Tu <span id="mascota-jugador"></span>: <span id="vida-jugador"></span> vidas</p>
+        </div>
+        <div class="mokemon-salud" id="mokemon-salud-enemigo">
+            <p id="p-salud-enemigo"><span id="mascota-enemigo"></span><span id="vida-enemigo"></span> vidas</p>
+        </div>
         <!-- secciones de elegir ataque e historial de ataques-->
-        <div class="estilos-secciones-paginas">
+        <div class="estilos-secciones-paginas" id="seccion-ataque-historial">
             <section>
                 <h2 id="h2-ataque">Elige tu ataque:</h2>
                 <div class="flex-ataques">
@@ -63,10 +60,11 @@
                 <div id="creacion-historial-ataques"></div>
             </section>
         </div>
-    </div>
-    <button class="seleccionables-clickeables estilos-button-elegir-reiniciar" id="button-reiniciar">
-        Reiniciar
-    </button>
+        <button class="seleccionables-clickeables estilos-button-elegir-reiniciar" id="button-reiniciar">
+            Reiniciar
+        </button>
+    </section>
+    <script src="./Archivos-js/código.js"></script>
 </body>
 
 </html>
